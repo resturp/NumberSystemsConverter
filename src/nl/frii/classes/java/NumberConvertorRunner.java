@@ -37,10 +37,17 @@ public class NumberConvertorRunner {
         NumberSystemConverter lt16 = new NumberSystemConverter(NumberSystem.HEXADECIMAL);
         NumberSystemConverter lt3 = new NumberSystemConverter(NumberSystem.TERNATE);
         
-        System.out.println( lt2.fromString("00010100"));
-        System.out.println( lt8.fromString("12347"));
-        System.out.println( lt16.fromString("Af"));
-        System.out.println( lt3.fromString("111"));
+        System.out.println( lt2.fromStringToLong("00010100"));
+        System.out.println( lt8.fromStringToLong("12347"));
+        System.out.println( lt16.fromStringToLong("Af"));
+        System.out.println( lt3.fromStringToLong("111"));
+        System.out.println( lt3.fromStringToLong("01221"));
+        
+        System.out.println( lt2.fromStringToDouble("0001.0100"));
+        System.out.println( lt8.fromStringToDouble("12347"));
+        System.out.println( lt16.fromStringToDouble("Af,AF"));
+        System.out.println( lt3.fromStringToDouble("111.1"));
+        
         
     }
 }

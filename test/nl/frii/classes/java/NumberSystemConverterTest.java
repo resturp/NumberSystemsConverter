@@ -40,51 +40,68 @@ public class NumberSystemConverterTest {
 
     NumberSystemConverter myBinConverter = new NumberSystemConverter(NumberSystem.BINARY);
     NumberSystemConverter myDecimalConverter = new NumberSystemConverter(NumberSystem.DECIMAL);
+    NumberSystemConverter myTernateConverter = new NumberSystemConverter(NumberSystem.TERNATE);
 
     @Test
     public void TestConvert0ToBinNumber() throws Exception {
-        assertEquals("0 should be 0", 0l, myBinConverter.fromString("0"));
+        assertEquals("0 bin should be 0 dec", 0l, myBinConverter.fromStringToLong("0"));
     }
 
     @Test
     public void TestConvert01ToBinNumber() throws Exception {
-        assertEquals("01 should be 1", 1, myBinConverter.fromString("01"));
+        assertEquals("01 bin should be 1 dec", 1, myBinConverter.fromStringToLong("01"));
     }
 
     @Test
     public void TestConvert001ToBinNumber() throws Exception {
-        assertEquals("001 should be 1", 1, myBinConverter.fromString("001"));
+        assertEquals("001 bin should be 1 dec", 1, myBinConverter.fromStringToLong("001"));
     }
 
     @Test
     public void TestConvert10ToBinNumber() throws Exception {
-        assertEquals("10 should be 2", 2, myBinConverter.fromString("10"));
+        assertEquals("10 bin should be 2 dec", 2, myBinConverter.fromStringToLong("10"));
     }
 
         @Test
     public void TestConvert0ToDecNumber() throws Exception {
-        assertEquals("0 should be 0", 0, myDecimalConverter.fromString("0"));
+        assertEquals("0 should be 0", 0, myDecimalConverter.fromStringToLong("0"));
     }
 
     @Test
     public void TestConvert01ToDecNumber() throws Exception {
-        assertEquals("01 should be 1", 1, myDecimalConverter.fromString("01"));
+        assertEquals("01 should be 1", 1, myDecimalConverter.fromStringToLong("01"));
     }
 
     @Test
     public void TestConvert001ToDecNumber() throws Exception {
-        assertEquals("001 should be 1", 1, myDecimalConverter.fromString("001"));
+        assertEquals("001 should be 1", 1, myDecimalConverter.fromStringToLong("001"));
     }
 
     @Test
     public void TestConvert10ToDecNumber() throws Exception {
-        assertEquals("Decimal 10 should be 10", 10, myDecimalConverter.fromString("10"));
+        assertEquals("Decimal 10 should be 10", 10, myDecimalConverter.fromStringToLong("10"));
     }
 
     @Test
     public void TestConvert9234837635ToDecNumber() throws Exception {
-        assertEquals("9234837635 should be 9234837635", 9234837635l, myDecimalConverter.fromString("9234837635"));
+        assertEquals("9234837635 should be 9234837635", 9234837635l, myDecimalConverter.fromStringToLong("9234837635"));
     }
+    
+    @Test
+    public void TestConvert01221ToDecNumber() throws Exception {
+        assertEquals("01221 ter should be 52 dec", 52, myTernateConverter.fromStringToLong("01221"));
+    }
+    
+    @Test
+    public void TestConvertBin101_01ToDecNumber() throws Exception {
+        assertEquals("101.01 should be approx 5.25", 5.25, myBinConverter.fromStringToDouble("101.01"),0.000001);
+    }
+    
+    @Test
+    public void TestConvertTer1221_1ToDecNumber() throws Exception {
+        assertEquals("1221,1 ter should be 52.33333", 52.333333333333, myTernateConverter.fromStringToDouble("1221,1"),0.000001);
+    }
+    
 
     
 }

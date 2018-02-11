@@ -34,7 +34,7 @@ public class NumberSystemConverter {
     private NumberSystem ts;
     
     /**
-     * enum enumeration different number systems
+     * Enum enumeration different number systems
      */
     public enum NumberSystem {
         BINARY(2),
@@ -55,8 +55,8 @@ public class NumberSystemConverter {
     }
 
     /**
-     * This method converts a String of digits to a long 
-     * based on the number system selected at instantiation
+     * This method converts a String of digits to a long. 
+     * This conversion is based on the number system selected at instantiation.
      * 
      * @param woord
      * The word to convert
@@ -67,7 +67,7 @@ public class NumberSystemConverter {
      * @throws Exception
      * If a digit is not valid within the Number system.
      */
-    public long fromString(String woord) throws Exception {
+    public long fromStringToLong(String woord) throws Exception {
         long value = 0;
         int index = 1;
         char[] mijnWoord = woord.toCharArray();
@@ -95,5 +95,30 @@ public class NumberSystemConverter {
             }
         }
         return value;
+    }
+    
+     /**
+     * This method converts a String of digits and 0 or 1
+     * decimal sign to a double value. 
+     * The conversion is based on the number system selected at instantiation.
+     * Use a dot . or comma , for decimal separation,
+     * 
+     * @param woord
+     * The word to convert
+     * 
+     * @return
+     * The Double value 
+     * 
+     * @throws Exception
+     * If a digit is not valid within the Number system.
+     */
+    public double fromStringToDouble(String word) throws Exception {
+       String[] parts = word.split("\\,|\\.");
+       double value = fromStringToLong(parts[0]);
+       if (parts.length > 1) {
+           double unit = Math.pow(ts.numDigit, -1 * parts[1].length());
+           value += unit * fromStringToLong(parts[1]);
+       }
+       return value;
     }
 }
