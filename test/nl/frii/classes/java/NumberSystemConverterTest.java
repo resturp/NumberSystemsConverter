@@ -62,7 +62,12 @@ public class NumberSystemConverterTest {
         assertEquals("10 bin should be 2 dec", 2, myBinConverter.fromStringToLong("10"));
     }
 
-        @Test
+    @Test
+    public void TestConvert111ToBinNumber() throws Exception {
+        assertEquals("111 should be 7", 7, myBinConverter.fromStringToLong("001"));
+    }
+    
+    @Test
     public void TestConvert0ToDecNumber() throws Exception {
         assertEquals("0 should be 0", 0, myDecimalConverter.fromStringToLong("0"));
     }
