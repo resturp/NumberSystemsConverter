@@ -48,6 +48,7 @@ public class NumberConvertorRunner {
         System.out.println( lt16.fromStringToDouble("Af,AF"));
         System.out.println( lt3.fromStringToDouble("111.1"));
         
+        System.out.println( lt16.fromLongToString(175));
         
     }
 }
