@@ -64,7 +64,7 @@ public class NumberSystemConverterTest {
 
     @Test
     public void TestConvert111ToBinNumber() throws Exception {
-        assertEquals("111 should be 7", 7, myBinConverter.fromStringToLong("001"));
+        assertEquals("111 should be 7", 7, myBinConverter.fromStringToLong("111"));
     }
     
     @Test
