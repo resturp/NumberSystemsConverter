@@ -144,4 +144,30 @@ public class NumberSystemConverter {
         }
 
     }
+    
+    
+    /**
+     * This method converts a String of digits and 0 or 1 decimal sign to a
+     * double value. The conversion is based on the number system selected at
+     * instantiation. Use a dot . or comma , for decimal separation,
+     *
+     * @param woord The word to convert
+     *
+     * @return The Double value
+     *
+     * @throws Exception If a digit is not valid within the Number system.
+     */
+    public String fromDoubleToString(Double word) {
+        String[] arr= String.valueOf(word).split("\\.");
+        
+        String toReturn = fromLongToString((arr[0])) + ".";
+        word = word - Math.floor(word); 
+        
+        while (word > 0) {
+            word = word *  ts.numDigit;
+            toReturn += String.valueOf(word).split("\\.")[0];
+            word = word - Math.floor(word);    
+        }
+        return toReturn;
+    }
 }
