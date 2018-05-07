@@ -160,9 +160,9 @@ public class NumberSystemConverter {
     public String fromDoubleToString(Double word) {
         String[] arr= String.valueOf(word).split("\\.");
         
-        String toReturn = fromLongToString((arr[0])) + ".";
+        String toReturn = fromLongToString(Long.valueOf(arr[0])) + ".";
         word = word - Math.floor(word); 
-        
+         
         while (word > 0) {
             word = word *  ts.numDigit;
             toReturn += String.valueOf(word).split("\\.")[0];

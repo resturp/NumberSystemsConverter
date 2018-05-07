@@ -49,6 +49,8 @@ public class NumberConvertorRunner {
         System.out.println( lt3.fromStringToDouble("111.1"));
         
         System.out.println( lt16.fromLongToString(175));
+        System.out.println( lt2.fromDoubleToString(3.75));
+        System.out.println( lt2.fromDoubleToString(0.1));
         
     }
 }
