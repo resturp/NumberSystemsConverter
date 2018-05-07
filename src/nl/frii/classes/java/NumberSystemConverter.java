@@ -93,6 +93,23 @@ public class NumberSystemConverter {
         }
         return value;
     }
+    
+    /**
+     * 
+     * Static variant of the fromStringToLong method
+     * 
+     * @param word
+     * @param ns
+     * @return 
+     *  the long integer value of a String, word in a given number system ns.
+     * 
+     * @throws Exception 
+     *   When the string contains any char not valid as a digit given th ns.
+     */
+    public static long fromStringToLong (String word, NumberSystem ns) throws Exception {
+        NumberSystemConverter nsc = new NumberSystemConverter(ns);
+        return nsc.fromStringToLong(word);
+    }
 
     /**
      * This method converts a String of digits and 0 or 1 decimal sign to a
@@ -115,6 +132,23 @@ public class NumberSystemConverter {
         return value;
     }
 
+    /**
+     * 
+     * Static variant of the fromStringToDouble method
+     * 
+     * @param word
+     * @param ns
+     * @return 
+     *  the double value of a String, word in a given number system ns.
+     * 
+     * @throws Exception 
+     *   When the string contains any char not valid as a digit given th ns.
+     */
+    public static double fromStringToDouble (String word, NumberSystem ns) throws Exception {
+        NumberSystemConverter nsc = new NumberSystemConverter(ns);
+        return nsc.fromStringToDouble(word);
+    }
+    
     /**
      * This method converts a Long to a String of digits. This conversion is
      * based on the number system selected at instantiation.
@@ -145,6 +179,20 @@ public class NumberSystemConverter {
 
     }
     
+     /**
+     * 
+     * Static variant of the fromLongToString method
+     * 
+     * @param word
+     * @param ns
+     * @return 
+     *  the String representation of a long value given a number system ns.
+     * 
+     */
+    public static String fromLongToString (long word, NumberSystem ns) {
+        NumberSystemConverter nsc = new NumberSystemConverter(ns);
+        return nsc.fromLongToString(word);
+    }
     
     /**
      * This method converts a String of digits and 0 or 1 decimal sign to a
@@ -170,4 +218,20 @@ public class NumberSystemConverter {
         }
         return toReturn;
     }
+    
+     /**
+     * 
+     * Static variant of the fromDoubleToString method
+     * 
+     * @param word
+     * @param ns
+     * @return 
+     *  the String representation of a long value given a number system ns.
+     * 
+     */
+    public static String fromDoubleToString (double word, NumberSystem ns) {
+        NumberSystemConverter nsc = new NumberSystemConverter(ns);
+        return nsc.fromDoubleToString(word);
+    }
+
 }
