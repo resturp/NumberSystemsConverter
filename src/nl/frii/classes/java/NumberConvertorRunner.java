@@ -45,12 +45,16 @@ public class NumberConvertorRunner {
         
         System.out.println( lt2.fromStringToDouble("0001.0100"));
         System.out.println( lt8.fromStringToDouble("12347"));
-        System.out.println( lt16.fromStringToDouble("Af,AF"));
+        System.out.println( lt16.fromStringToDouble("-Af,AF"));
         System.out.println( lt3.fromStringToDouble("111.1"));
         
         System.out.println( lt16.fromLongToString(175));
+        
         System.out.println( lt2.fromDoubleToString(3.75));
         System.out.println( lt2.fromDoubleToString(0.1));
+        System.out.println( lt3.fromDoubleToString(0.1));
         
+        System.out.println( lt3.fromStringToString("1000", NumberSystem.OCTAL));
+        System.out.println( lt3.fromStringToString("0.1", NumberSystem.DECIMAL));
     }
 }

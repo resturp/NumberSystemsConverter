@@ -31,6 +31,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import nl.frii.classes.java.NumberSystemConverter.NumberSystem;
 
 /**
  *
@@ -38,10 +39,10 @@ import static org.junit.Assert.*;
  */
 public class NumberSystemConverterToStringTest {
     
-    NumberSystemConverter myBinConverter = new NumberSystemConverter(NumberSystemConverter.NumberSystem.BINARY);
-    NumberSystemConverter myDecimalConverter = new NumberSystemConverter(NumberSystemConverter.NumberSystem.DECIMAL);
-    NumberSystemConverter myTernateConverter = new NumberSystemConverter(NumberSystemConverter.NumberSystem.TERNATE);
-    NumberSystemConverter myHexConverter = new NumberSystemConverter(NumberSystemConverter.NumberSystem.HEXADECIMAL);
+    NumberSystemConverter myBinConverter = new NumberSystemConverter(NumberSystem.BINARY);
+    NumberSystemConverter myDecimalConverter = new NumberSystemConverter(NumberSystem.DECIMAL);
+    NumberSystemConverter myTernateConverter = new NumberSystemConverter(NumberSystem.TERNATE);
+    NumberSystemConverter myHexConverter = new NumberSystemConverter(NumberSystem.HEXADECIMAL);
     
 
     
@@ -50,9 +51,14 @@ public class NumberSystemConverterToStringTest {
         assertEquals("3.75 in bin should be 11.11", "11.11", myBinConverter.fromDoubleToString(3.75));
     }
     
+    @Test
     public void TestConvert0_ToBinairyString() {
         assertEquals("0.0625 (1/16) in hex should be 0.1", "0.1", myHexConverter.fromDoubleToString(0.0625));
     }
     
+    @Test
+    public void TestConvertfromStringToString() throws Exception {
+        assertEquals("bin 1010 should be A in HEX", "A", myBinConverter.fromStringToString("1010", NumberSystem.HEXADECIMAL)); 
+    }
     
 }

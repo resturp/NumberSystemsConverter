@@ -107,6 +107,7 @@ public class NumberSystemConverterTest {
         assertEquals("1221,1 ter should be 52.33333", 52.333333333333, myTernateConverter.fromStringToDouble("1221,1"),0.000001);
     }
     
+   
 
     
 }
