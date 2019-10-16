@@ -31,6 +31,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Start Test project for  
@@ -40,7 +41,9 @@ public class NumberSystemConverterTest {
 
     NumberSystemConverter myBinConverter = new NumberSystemConverter(NumberSystem.BINARY);
     NumberSystemConverter myDecimalConverter = new NumberSystemConverter(NumberSystem.DECIMAL);
-    NumberSystemConverter myTernateConverter = new NumberSystemConverter(NumberSystem.TERNATE);
+    NumberSystemConverter myTernateConverter = new NumberSystemConverter(NumberSystem.TERNARY);
+    NumberSystemConverter myHexConverter = new NumberSystemConverter(NumberSystem.HEXADECIMAL);
+    NumberSystemConverter myVisConverter = new NumberSystemConverter(NumberSystem.VIGESIMAL);
 
     @Test
     public void TestConvert0ToBinNumber() throws Exception {
@@ -107,6 +110,20 @@ public class NumberSystemConverterTest {
         assertEquals("1221,1 ter should be 52.33333", 52.333333333333, myTernateConverter.fromStringToDouble("1221,1"),0.000001);
     }
     
+    @Test
+    public void TestConvertHEX_afToDecNumber() throws Exception {
+        assertEquals("af hex should be 175 dec", 175, myHexConverter.fromStringToLong("af"));
+    }
+    
+    @Test(expected = Exception.class)
+    public void TestIlligalChar() throws Exception {
+    	long a = myDecimalConverter.fromStringToLong("hallo");
+    }
+    
+    @Test
+    public void TestConvertVIS_JACE8_ToDecNumber() throws Exception {
+        assertEquals("af hex should be 175 dec", 3125088, myVisConverter.fromStringToLong("JaCE8"));
+    }
 
     
 }

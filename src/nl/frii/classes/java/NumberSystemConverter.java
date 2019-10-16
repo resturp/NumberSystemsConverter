@@ -39,10 +39,18 @@ public class NumberSystemConverter {
      */
     public enum NumberSystem {
         BINARY(2),
-        TERNATE(3),
+        TERNARY(3),
+        QUATERNARY(4),
+        QUINARY(5),
+        SENARY(6),
+        SEPTENARY(7),
         OCTAL(8),
+        NONARY(9),
         DECIMAL(10),
-        HEXADECIMAL(16);
+        DUODECIMAL(12),
+        HEXADECIMAL(16),
+    	OCTADECIMAL(18),
+    	VIGESIMAL(20);
 
         private int numDigit;
 
@@ -84,6 +92,7 @@ public class NumberSystemConverter {
             }
 
             // check if the digit is valid for this number system
+            // coverage: both cannot be false at the same time.
             if (c >= '0' && c < '0' + ts.numDigit) {
                 value = value * ts.numDigit;
                 value = value + (c - '0');

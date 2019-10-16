@@ -1,10 +1,12 @@
 # NetBeans specific #
 build.xml
 manifest.mf
+.DS_Store
 nbproject/
 build/
 nbbuild/
 dist/
+bin/
 nbdist/
 nbactions.xml
 .nb-gradle/
@@ -17,3 +19,4 @@ nb-configuration.xml
 *.jar
 *.war
 *.ear
+/bin/

@@ -35,7 +35,7 @@ public class NumberConvertorRunner {
         NumberSystemConverter lt2 = new NumberSystemConverter(NumberSystem.BINARY);
         NumberSystemConverter lt8 = new NumberSystemConverter(NumberSystem.OCTAL);
         NumberSystemConverter lt16 = new NumberSystemConverter(NumberSystem.HEXADECIMAL);
-        NumberSystemConverter lt3 = new NumberSystemConverter(NumberSystem.TERNATE);
+        NumberSystemConverter lt3 = new NumberSystemConverter(NumberSystem.TERNARY);
         
         System.out.println( lt2.fromStringToLong("00010100"));
         System.out.println( lt8.fromStringToLong("12347"));
